@@ -1,92 +1,173 @@
-/*______________________chargement de la page______________________*/
-.dots {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    visibility: visible;
-    animation: fadeOut 2s forwards; 
-    animation-delay: 3s;
-}
-
-
-.dots {
-    width: 3.5em;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-  
-  .dots div {
-    width: 0.8em;
-    height: 0.8em;
-    border-radius: 50%;
-    background-color: #fc2f70;
-    animation: fade 0.8s ease-in-out alternate infinite;
-}
-
-  
-  .dots div:nth-of-type(1) {
-    animation-delay: -0.4s;
-}
-
-  
-  .dots div:nth-of-type(2) {
-    animation-delay: -0.2s;
-}
-
-  @keyframes fade {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-}
-
-
 /*______________________site______________________*/
 
 * {
-  background-color: rgb(17, 17, 46);
+  background-color: rgb(11, 11, 29);
 }
 
+.miseenpage {
+  margin-left: 150px ;
+  margin-right: 150px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+
+/*texte*/
 a {
   color: aliceblue;
-  display: flex; 
-  justify-content: center;
+  display: flex;
+  justify-content: space-around;
 }
 
-
-
-
-/*______________________sitepage1______________________*/
-
-h1 {
-  color: aliceblue; 
+/* Navigation fixe */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 25, 47, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+  animation: slideDown 0.5s ease;
 }
+
+@keyframes slideDown {
+  from {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+nav .menu {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #a0b7fd;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #6d46b6;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #6d46b6;
+  transform: translateY(-2px);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/*__________________titre et animations des titres de chaque page__________________*/
 
 .zoom-titre{
   transition: transform 0.3s;
-  max-width: 100%
+  max-width: 100% ;
 }
 
 .zoom-titre:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
+}
+
+
+/*______________________sitepage1(index)______________________*/
+
+.fond{
+  background-image: url('fond.jpg');
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-position: center; /* Centre l'image */
+  background-size: cover; /* Adapte l'image à la taille de l'écran */
+}
+
+.section {
+  min-height: 100vh;
+  padding: 100px 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  text-align: center;
+  animation: fadeInUp 1s ease;
+  width: 100%;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #d5dbf0;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  animation: zoomIn 1s ease;
+}
+
+/*text_introductif*/
+
+.Intro{
+  color: rgb(62, 180, 216);
+}
+
+.content-box {
+  border: 1px solid rgb(57, 150, 179);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  animation: fadeInUp 1s ease 0.3s backwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box:hover {
+  transform: translateY(-5px);
+   box-shadow: 0 15px 50px rgba(88, 174, 245, 0.829);
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #8892b0;
+  text-align: justify;
+}
+
+/*Image*/
+.imagepage1 {
+  display: flex;
+  justify-content: center;
+  width: 450px;
+  height: 300px;
+  border-radius: 10px; 
 }
 
 
 /*______________________sitepage2______________________*/
 
+
+/*Animation et ésthétique des images*/
 .zoom img {
 	-webkit-transform: scale(1);
 	transform: scale(1);
@@ -95,20 +176,89 @@ h1 {
 }
 .zoom :hover img {
 	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
-}
-
-.imagepage2 {
-  width: 250px;
-	height: 250px;
-  display: flex;
+	transform: scale(1.1);
 }
 
 .zoom {
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  gap: 20px; 
+  margin: 30px 0;
+}
+
+.imagepage2 {
+  width: 450px;
+	height: 270px;
+  display: flex;
+  object-fit: cover; /* Important pour éviter la déformation */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+#ombresurfeur{
+  width: 100px;
+  height: 150px;
+}
+/* Texte */
+h3 {
+  color: aliceblue;
+  display : flex; 
+  font-size: 1.1rem; /* Réduire la taille */
+  font-weight: 400; /* Moins gras */
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+.Nazare {
+  display: flex;
+  display: block; /* Au lieu de flex */
+  margin-bottom: 40px;
 }
 
 
 /*______________________sitepage3______________________*/ 
+
+h4 {
+  color : aliceblue ;
+}
+
+
+/* Section contact */
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Icônes sociales */
+.icones {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ésthétique et animation des icones */
+.anim {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background: rgba(109, 70, 182, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(100, 255, 218, 0.3);
+  transition: all 0.4s ease;
+}
+
+.anim:hover {
+  transform: translateY(-10px) rotate(5deg);
+  border-color: #6d46b6;
+  box-shadow: 0 10px 30px rgba(57, 39, 218, 0.938);
+}
