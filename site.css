@@ -1,6 +1,12 @@
-/*______________________site______________________*/
+/*______________________site_entier______________________*/
 
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: rgb(11, 11, 29);
 }
 
@@ -12,15 +18,31 @@
   padding: 40px 20px;
 }
 
-
-/*texte*/
+/*Textes*/
 a {
   color: aliceblue;
   display: flex;
   justify-content: space-around;
 }
 
-/* Navigation fixe */
+h1 {
+  font-size: 5rem;
+  color: #d5dbf0;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: aliceblue;
+  display : flex; 
+  font-size: 1.1rem; /* Réduire la taille */
+  font-weight: 400; /* Moins gras */
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+/* Navigation pour changer de pages */
 nav {
   position: fixed;
   top: 0;
@@ -51,6 +73,7 @@ nav {
 nav .menu {
   display: flex;
   gap: 2rem;
+  background: transparent;
 }
 
 nav a {
@@ -59,6 +82,7 @@ nav a {
   font-weight: 500;
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
+  background: transparent;
 }
 
 nav a::after {
@@ -82,11 +106,12 @@ nav a:hover::after {
 }
 
 
-/*__________________titre et animations des titres de chaque page__________________*/
+/*Animation des titres*/
 
 .zoom-titre{
   transition: transform 0.3s;
-  max-width: 100% ;
+  max-width: 100%;
+  background: transparent;
 }
 
 .zoom-titre:hover {
@@ -98,9 +123,29 @@ nav a:hover::after {
 
 .fond{
   background-image: url('fond.jpg');
-  background-repeat: no-repeat; /* Empêche la répétition de l'image */
-  background-position: center; /* Centre l'image */
-  background-size: cover; /* Adapte l'image à la taille de l'écran */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+/*Assombirssement du fond*/
+.fond::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(11, 11, 29, 0.7);
+  z-index: 0;
+}
+
+.fond > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -110,26 +155,44 @@ nav a:hover::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: transparent;
 }
 
 .hero {
   text-align: center;
   animation: fadeInUp 1s ease;
   width: 100%;
+  background: transparent;
 }
 
-h1 {
-  font-size: 5rem;
-  color: #d5dbf0;
-  margin-bottom: 2rem;
-  letter-spacing: 2px;
-  animation: zoomIn 1s ease;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/*text_introductif*/
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*Texte introductif*/
 
 .Intro{
   color: rgb(62, 180, 216);
+  background: transparent;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .content-box {
@@ -140,31 +203,26 @@ h1 {
   margin: 2rem auto;
   animation: fadeInUp 1s ease 0.3s backwards;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(11, 11, 29, 0.85);
+  backdrop-filter: blur(5px);
 }
 
 .content-box:hover {
-  transform: translateY(-5px);
-   box-shadow: 0 15px 50px rgba(88, 174, 245, 0.829);
+  box-shadow: 0 15px 50px rgba(88, 174, 245, 0.829);
 }
 
-h3 {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #8892b0;
-  text-align: justify;
-}
-
-/*Image*/
+/*Images*/
 .imagepage1 {
   display: flex;
   justify-content: center;
   width: 450px;
   height: 300px;
-  border-radius: 10px; 
+  border-radius: 10px;
+  background: transparent;
 }
 
 
-/*______________________sitepage2______________________*/
+/*______________________sitepage2_et_page3______________________*/
 
 
 /*Animation et ésthétique des images*/
@@ -198,56 +256,26 @@ h3 {
   transition: transform 0.3s ease;
 }
 
-#ombresurfeur{
-  width: 100px;
-  height: 150px;
-}
-/* Texte */
-h3 {
-  color: aliceblue;
-  display : flex; 
-  font-size: 1.1rem; /* Réduire la taille */
-  font-weight: 400; /* Moins gras */
-  line-height: 1.7;
-  text-align: justify;
-  margin-bottom: 30px;
-}
 
-.Nazare {
-  display: flex;
-  display: block; /* Au lieu de flex */
-  margin-bottom: 40px;
-}
-
-
-/*______________________sitepage3______________________*/ 
+/*__________________________sitepage4__________________________*/ 
 
 h4 {
   color : aliceblue ;
 }
 
-
-/* Section contact */
-.contact {
-  display: flex;
-  justify-content: center;
-}
-
-
-/* Icônes sociales */
+/* ésthétique et animation des icones */
 .icones {
   color: aliceblue;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-/* ésthétique et animation des icones */
 .anim {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: rgba(109, 70, 182, 0.3);
   border-radius: 50%;
   display: flex;
@@ -262,3 +290,4 @@ h4 {
   border-color: #6d46b6;
   box-shadow: 0 10px 30px rgba(57, 39, 218, 0.938);
 }
+
