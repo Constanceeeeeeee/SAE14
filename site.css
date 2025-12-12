@@ -190,9 +190,9 @@ nav a:hover::after {
 /*Texte introductif*/
 
 .Intro{
-  color: rgb(62, 180, 216);
+  color: rgb(106, 186, 201);
   background: transparent;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgba(214, 12, 130, 0.8);
 }
 
 .content-box {
@@ -212,6 +212,13 @@ nav a:hover::after {
 }
 
 /*Images*/
+
+.statue {
+  border-radius: 10px;
+  width : 350px;
+  height : 200px;
+}
+
 .imagepage1 {
   display: flex;
   justify-content: center;
