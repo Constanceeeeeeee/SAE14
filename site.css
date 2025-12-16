@@ -227,15 +227,15 @@ nav a:hover::after {
 
 /* Cacher la barre de défilement*/
 .carrousel::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 
 /*Centrer les images dans le carrousel*/
 .slide {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    position: relative;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
 }
 
 .slide img {
@@ -265,9 +265,9 @@ nav a:hover::after {
 }
 
 .navcarrousel a:hover {
-    background: #3fbdd6e0;
-    color: #060f2b;
-    border-color: #060f2b;
+  background: #3fbdd6e0;
+  color: #060f2b;
+  border-color: #060f2b;
 }
 
 
@@ -304,10 +304,33 @@ nav a:hover::after {
 }
 
 .imagepage3 {
-  width: 300px;
-	height: 300px;
+  width: 550px;
+	height: 370px;
   display: flex;
   object-fit: cover;
+  border-radius: 8px;
+}
+
+.block {
+  padding: 50px;
+  background-image: url('fond2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 10px;
+}
+
+.texte3{
+color: aliceblue;
+font-size: 25px;
+}
+
+.video {
+  height: 400px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
   border-radius: 8px;
 }
 
