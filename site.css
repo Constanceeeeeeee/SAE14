@@ -368,3 +368,15 @@ h4 {
   box-shadow: 0 10px 30px rgba(57, 39, 218, 0.938);
 }
 
+.containerp4 {
+  display: flex;            
+  justify-content: space-between; 
+  align-items: center;     
+  width: 100%;           
+} 
+
+.imagepage4 {
+  width: 275px;
+  height: 375px;
+  border-radius: 10px;
+}
